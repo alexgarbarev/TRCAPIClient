@@ -20,7 +20,7 @@
 
 + (instancetype)transformerForFileKind:(CCFileKind *)fileKind
 {
-    let transformer = FWValueTransformerCCFile.new;
+    FWValueTransformerCCFile *transformer = [FWValueTransformerCCFile new];
     transformer->_fileKind = fileKind;
     return transformer;
 }

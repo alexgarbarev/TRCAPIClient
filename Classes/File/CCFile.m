@@ -249,14 +249,14 @@ static NSDictionary *CCFileKindValues;
 
 - (void)setLibraryAsset:(PHAsset *)libraryAsset
 {
-    self willChangeValueForKey:@"states"];
+    [self willChangeValueForKey:@"states"];
     _libraryAsset = libraryAsset;
     [self didChangeValueForKey:@"states"];
 }
 
 - (void)setFilePath:(NSString *)filePath
 {
-    self willChangeValueForKey:@"states"];
+    [self willChangeValueForKey:@"states"];
     _filePath = filePath;
     [self didChangeValueForKey:@"states"];
 }
@@ -283,7 +283,7 @@ static NSDictionary *CCFileKindValues;
                          resultHandler:^void(UIImage *image, NSDictionary *info) {
                              NSError *error = info[PHImageErrorKey];
                              if (error) {
-                                 DDLogError(@"Can't get image for asset '%@': %@", self, error);
+                                 NSLog(@"Can't get image for asset '%@': %@", self, error);
                              }
                              SafetyCall(completion, image, error);
                          }];
