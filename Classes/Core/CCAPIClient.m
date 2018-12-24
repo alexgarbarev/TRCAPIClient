@@ -69,7 +69,7 @@
     }
     
     __block TRCConnectionProxy *previousConnection = nil;
-    [proxyConnections enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(TRCConnectionProxy *connection, NSUInteger idx, BOOL * _Nonnull stop) {
+    [proxyConnections enumerateObjectsWithOptions:0 usingBlock:^(TRCConnectionProxy *connection, NSUInteger idx, BOOL * _Nonnull stop) {
         if (previousConnection) {
             connection.connection = previousConnection;
         } else {
