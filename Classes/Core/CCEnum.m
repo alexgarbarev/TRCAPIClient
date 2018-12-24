@@ -6,7 +6,6 @@
 //  Copyright © 2018 Loud & Clear Pty Ltd. All rights reserved.
 //
 
-#import <ComponentsHub/CCMapCollections.h>
 #import "CCEnum.h"
 
 @implementation CCEnum {
@@ -25,9 +24,12 @@
 + (id _Nullable)valueFromResponseValue:(id _Nullable)value
 {
     if ([value isKindOfClass:NSArray.class]) {
-        return [value arrayUsingMap:^id(id object) {
-            return [self fromResponseValue:object];
-        }];
+        NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[value count]];
+        for (id object in value) {
+            [result addObject:[self fromResponseValue:object]];
+        }
+        return result;
+        
     } else {
         return [self fromResponseValue:value];
     }
@@ -36,16 +38,16 @@
 + (id _Nullable)requestValueFromValue:(id _Nullable)value
 {
     if ([value isKindOfClass:NSArray.class]) {
-        return [value arrayUsingMap:^id(id object) {
+        NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[value count]];
+        for (id object in value) {
             NSAssert([object isKindOfClass:CCEnum.class], @"Can't create request value from %@", value);
-            return [object requestValue];
-        }];
+            [result addObject:[object requestValue]];
+        }
+        return result;
     } else if ([value isKindOfClass:CCEnum.class]) {
         return [value requestValue];
     }
-    //NSAssert(NO, @"Can't create request value from %@", value);
-//    return nil;
-
+    
     return [NSNull null];
 }
 
@@ -88,7 +90,7 @@
         return YES;
     if (!other || ![other.class isEqual:self.class])
         return NO;
-
+    
     return [self isEqualToAnEnum:(id)other];
 }
 
