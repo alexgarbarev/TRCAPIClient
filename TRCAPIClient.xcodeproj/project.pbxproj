@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		FA932BE621D14FF10060ECC1 /* CCValueTransformerRFC3339Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerRFC3339Date.h; sourceTree = "<group>"; };
+		FA932BE721D14FF10060ECC1 /* CCValueTransformerRFC3339Date.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerRFC3339Date.m; sourceTree = "<group>"; };
 		FAF8E4EF21D0734700C58524 /* CCAPIClientURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAPIClientURL.h; sourceTree = "<group>"; };
 		FAF8E4F021D0734700C58524 /* CCEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEnum.h; sourceTree = "<group>"; };
 		FAF8E4F121D0734700C58524 /* CCAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAPIClient.m; sourceTree = "<group>"; };
@@ -19,8 +21,6 @@
 		FAF8E50621D0734800C58524 /* FWValueTransformerCCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWValueTransformerCCFile.m; sourceTree = "<group>"; };
 		FAF8E50721D0734800C58524 /* FWValueTransformerCCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWValueTransformerCCFile.h; sourceTree = "<group>"; };
 		FAF8E50821D0734800C58524 /* CCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFile.m; sourceTree = "<group>"; };
-		FAF8E50D21D0818500C58524 /* CCValueTransformerOpenApiDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerOpenApiDate.h; sourceTree = "<group>"; };
-		FAF8E50E21D0818500C58524 /* CCValueTransformerOpenApiDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerOpenApiDate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -59,8 +59,8 @@
 				FAF8E4F321D0734700C58524 /* CCAPIClientURL.m */,
 				FAF8E4F021D0734700C58524 /* CCEnum.h */,
 				FAF8E4F621D0734800C58524 /* CCEnum.m */,
-				FAF8E50D21D0818500C58524 /* CCValueTransformerOpenApiDate.h */,
-				FAF8E50E21D0818500C58524 /* CCValueTransformerOpenApiDate.m */,
+				FA932BE621D14FF10060ECC1 /* CCValueTransformerRFC3339Date.h */,
+				FA932BE721D14FF10060ECC1 /* CCValueTransformerRFC3339Date.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";

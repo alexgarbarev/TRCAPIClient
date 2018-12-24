@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CCTRCSelfRegisteredComponent <NSObject>
 
-+ (void)registerWithRestClient:(TyphoonRestClient *)client;
++ (void)registerWithAPIClient:(CCAPIClient *)client;
 
 @end
 

@@ -20,11 +20,11 @@
 
 REGISTER_COMPONENT(CCAPIClient)
 
-+ (void)registerWithRestClient:(TyphoonRestClient *)restClient
++ (void)registerWithAPIClient:(CCAPIClient *)apiClient
 {
-    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullDate] forTag:@"{date}"];
-    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullTime] forTag:@"{time}"];
-    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithInternetDateTime] forTag:@"{date-time}"];
+    [apiClient.restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullDate] forTag:@"{date}"];
+    [apiClient.restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullTime] forTag:@"{time}"];
+    [apiClient.restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithInternetDateTime] forTag:@"{date-time}"];
 }
 
 - (instancetype)initWithFormat:(NSISO8601DateFormatOptions)formatOption

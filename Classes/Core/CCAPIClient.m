@@ -141,7 +141,7 @@
 - (void)registerSelfRegisteredComponentsForClass:(Class)clientClazz
 {
     for (Class clazz in [clientClazz componentsForClientClass]) {
-        [clazz registerWithRestClient:self.restClient];
+        [clazz registerWithAPIClient:self];
     }
 }
 
