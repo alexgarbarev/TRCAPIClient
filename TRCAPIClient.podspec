@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.exclude_files = "Classes/Exclude"
 
 
-  s.dependency 'ComponentsHub/MapCollections', :git => 'git@github.com:alexgarbarev/ios-hub.git'
+#s.dependency 'ComponentsHub/MapCollections', :git => 'git@github.com:alexgarbarev/ios-hub.git'
 
   #
   # Let's keep sub-components sorted alphabetically (by folder structure).
