@@ -40,7 +40,8 @@
     self.middleConnections = [NSMutableArray new];
         
     [self setupConnections];
-    [self registerSelfRegisteredComponents];
+    [self registerSelfRegisteredComponentsForClass:[self class]];
+    [self registerSelfRegisteredComponentsForClass:[CCAPIClient class]];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -137,13 +138,11 @@
     [[self componentsForClientClass] addObject:clazz];
 }
 
-- (void)registerSelfRegisteredComponents
+- (void)registerSelfRegisteredComponentsForClass:(Class)clientClazz
 {
-    for (Class clazz in [[self class] componentsForClientClass]) {
+    for (Class clazz in [clientClazz componentsForClientClass]) {
         [clazz registerWithRestClient:self.restClient];
-        NSLog(@"Registering class: %@", NSStringFromClass(clazz));
     }
-    
 }
 
 //-------------------------------------------------------------------------------------------

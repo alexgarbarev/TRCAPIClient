@@ -1,0 +1,233 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		FAF8E4EF21D0734700C58524 /* CCAPIClientURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAPIClientURL.h; sourceTree = "<group>"; };
+		FAF8E4F021D0734700C58524 /* CCEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEnum.h; sourceTree = "<group>"; };
+		FAF8E4F121D0734700C58524 /* CCAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAPIClient.m; sourceTree = "<group>"; };
+		FAF8E4F221D0734700C58524 /* CCAPIClient+Infrastructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCAPIClient+Infrastructure.h"; sourceTree = "<group>"; };
+		FAF8E4F321D0734700C58524 /* CCAPIClientURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAPIClientURL.m; sourceTree = "<group>"; };
+		FAF8E4F421D0734700C58524 /* CCAPIClient+Infrastructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CCAPIClient+Infrastructure.m"; sourceTree = "<group>"; };
+		FAF8E4F521D0734800C58524 /* CCAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAPIClient.h; sourceTree = "<group>"; };
+		FAF8E4F621D0734800C58524 /* CCEnum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEnum.m; sourceTree = "<group>"; };
+		FAF8E50521D0734800C58524 /* CCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCFile.h; sourceTree = "<group>"; };
+		FAF8E50621D0734800C58524 /* FWValueTransformerCCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWValueTransformerCCFile.m; sourceTree = "<group>"; };
+		FAF8E50721D0734800C58524 /* FWValueTransformerCCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWValueTransformerCCFile.h; sourceTree = "<group>"; };
+		FAF8E50821D0734800C58524 /* CCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFile.m; sourceTree = "<group>"; };
+		FAF8E50D21D0818500C58524 /* CCValueTransformerOpenApiDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerOpenApiDate.h; sourceTree = "<group>"; };
+		FAF8E50E21D0818500C58524 /* CCValueTransformerOpenApiDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerOpenApiDate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		FAF8E4BD21D0730600C58524 = {
+			isa = PBXGroup;
+			children = (
+				FAF8E4ED21D0734700C58524 /* Classes */,
+				FAF8E4C721D0730600C58524 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAF8E4C721D0730600C58524 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAF8E4ED21D0734700C58524 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8E4EE21D0734700C58524 /* Core */,
+				FAF8E50421D0734800C58524 /* File */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FAF8E4EE21D0734700C58524 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8E4F521D0734800C58524 /* CCAPIClient.h */,
+				FAF8E4F121D0734700C58524 /* CCAPIClient.m */,
+				FAF8E4F221D0734700C58524 /* CCAPIClient+Infrastructure.h */,
+				FAF8E4F421D0734700C58524 /* CCAPIClient+Infrastructure.m */,
+				FAF8E4EF21D0734700C58524 /* CCAPIClientURL.h */,
+				FAF8E4F321D0734700C58524 /* CCAPIClientURL.m */,
+				FAF8E4F021D0734700C58524 /* CCEnum.h */,
+				FAF8E4F621D0734800C58524 /* CCEnum.m */,
+				FAF8E50D21D0818500C58524 /* CCValueTransformerOpenApiDate.h */,
+				FAF8E50E21D0818500C58524 /* CCValueTransformerOpenApiDate.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FAF8E50421D0734800C58524 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				FAF8E50521D0734800C58524 /* CCFile.h */,
+				FAF8E50821D0734800C58524 /* CCFile.m */,
+				FAF8E50721D0734800C58524 /* FWValueTransformerCCFile.h */,
+				FAF8E50621D0734800C58524 /* FWValueTransformerCCFile.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		FAF8E4BE21D0730600C58524 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Aleksey Garbarev";
+			};
+			buildConfigurationList = FAF8E4C121D0730600C58524 /* Build configuration list for PBXProject "TRCAPIClient" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAF8E4BD21D0730600C58524;
+			productRefGroup = FAF8E4C721D0730600C58524 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		FAF8E4E521D0730800C58524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FAF8E4E621D0730800C58524 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAF8E4C121D0730600C58524 /* Build configuration list for PBXProject "TRCAPIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAF8E4E521D0730800C58524 /* Debug */,
+				FAF8E4E621D0730800C58524 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAF8E4BE21D0730600C58524 /* Project object */;
+}
