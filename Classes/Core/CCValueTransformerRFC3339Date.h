@@ -11,5 +11,5 @@
 
 #import "TRCValueTransformer.h"
 
-@interface CCValueTransformerOpenApiDate : NSObject <TRCValueTransformer>
+@interface CCValueTransformerRFC3339Date : NSObject <TRCValueTransformer>
 @end

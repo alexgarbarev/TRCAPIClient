@@ -9,36 +9,32 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "FWValueTransformerOpenApiDate.h"
+#import "CCValueTransformerRFC3339Date.h"
 #import "TRCUtils.h"
 #import "TyphoonRestClientErrors.h"
+#import "CCAPIClient+Infrastructure.h"
 
-@implementation CCValueTransformerOpenApiDate
-
-+ (NSDateFormatter *)requestDateFormatter
-{
-    static NSDateFormatter *formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = NSDateFormatter.new;
-        formatter.dateFormat = @"yyyy-MM-dd";
-        formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-        formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-    });
-    return formatter;
+@implementation CCValueTransformerRFC3339Date {
+    NSISO8601DateFormatter *_formatter;
 }
 
-+ (NSDateFormatter *)responseDateFormatter
+REGISTER_COMPONENT(CCAPIClient)
+
++ (void)registerWithRestClient:(TyphoonRestClient *)restClient
 {
-    static NSDateFormatter *formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = NSDateFormatter.new;
-        formatter.dateFormat = @"yyyy-MM-dd";
-        formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-        formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-    });
-    return formatter;
+    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullDate] forTag:@"{date}"];
+    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithFullTime] forTag:@"{time}"];
+    [restClient registerValueTransformer:[[CCValueTransformerRFC3339Date alloc] initWithFormat:NSISO8601DateFormatWithInternetDateTime] forTag:@"{date-time}"];
+}
+
+- (instancetype)initWithFormat:(NSISO8601DateFormatOptions)formatOption
+{
+    self = [super init];
+    if (self) {
+        _formatter = [NSISO8601DateFormatter new];
+        _formatter.formatOptions = formatOption;
+    }
+    return self;
 }
 
 - (NSDate *)objectFromResponseValue:(NSString *)responseValue error:(NSError **)error
@@ -50,9 +46,7 @@
         return nil;
     }
 
-    NSDateFormatter *dateFormatter = [self.class responseDateFormatter];
-
-    NSDate *date = [dateFormatter dateFromString:responseValue];
+    NSDate *date = [_formatter dateFromString:responseValue];
     if (!date && error) {
         *error = TRCErrorWithFormat(TyphoonRestClientErrorCodeResponseSerialization, @"Can't create NSDate from string '%@'", responseValue);
     }
@@ -67,12 +61,11 @@
         }
         return nil;
     }
-    NSDateFormatter *dateFormatter = [self.class requestDateFormatter];
 
-    NSString *string = [dateFormatter stringFromDate:object];
+    NSString *string = [_formatter stringFromDate:object];
 
     if (!string && error) {
-        *error = TRCErrorWithFormat(TyphoonRestClientErrorCodeRequestSerialization, @"Can't convert NSDate '%@' into NSStrign", object);
+        *error = TRCErrorWithFormat(TyphoonRestClientErrorCodeRequestSerialization, @"Can't convert NSDate '%@' into NSString", object);
     }
 
     return string;
