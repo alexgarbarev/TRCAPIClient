@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "TRCValueTransformer.h"
+#import <TyphoonRestClient/TRCValueTransformer.h>
 
 @interface CCValueTransformerRFC3339Date : NSObject <TRCValueTransformer>
 @end

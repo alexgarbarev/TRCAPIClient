@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TyphoonRestClient.h"
+#import <TyphoonRestClient/TyphoonRestClient.h>
 #import "CCAPIClientURL.h"
 
 NS_ASSUME_NONNULL_BEGIN
