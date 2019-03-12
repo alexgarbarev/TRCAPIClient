@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
 
   s.author       = { "Aleksey Garbarev" => "alex.garbarev@gmail.com" }
-  s.platform     = :ios, "8.0"
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.11'
   s.source       = { :git => "https://github.com/alexgarbarev/TRCClient.git", :tag => "#{s.version}" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
