@@ -22,10 +22,11 @@
 @interface CCFile()
 
 @property (nonatomic) NSString *filePath;
-@property (nonatomic) UIImage *originalImage;
+@property (nonatomic) Image *originalImage;
+
 @property (nonatomic) PHAsset *libraryAsset;
 
-@property (nonatomic) UIImage *thumbnail;
+@property (nonatomic) Image *thumbnail;
 
 @end
 
@@ -73,7 +74,7 @@ static NSDictionary *CCFileKindValues;
 #pragma mark - Interface methods
 //-------------------------------------------------------------------------------------------
 
-- (instancetype)initWithQuickTimeMovieAtURL:(NSURL *)url thumbnail:(UIImage *)thumbnail
+- (instancetype)initWithQuickTimeMovieAtURL:(NSURL *)url thumbnail:(Image *)thumbnail
 {
     self = [super init];
     if (self) {
@@ -86,7 +87,7 @@ static NSDictionary *CCFileKindValues;
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(Image *)image
 {
     self = [super init];
     if (self) {
@@ -125,7 +126,7 @@ static NSDictionary *CCFileKindValues;
     return [self initWithUploadName:imageUrl kind:CCFileKind._photo];
 }
 
-+ (instancetype)withImage:(UIImage *)image
++ (instancetype)withImage:(Image *)image
 {
     return [self.alloc initWithImage:image];
 }
@@ -184,7 +185,7 @@ static NSDictionary *CCFileKindValues;
         NSData *dataForUpload = UIImageJPEGRepresentation(self.originalImage, 0.8);
         SafetyCall(completion, dataForUpload, nil);
     } else if (self.libraryAsset) {
-        [self render:self.libraryAsset fast:NO size:CGSizeMake(2560, 2560) completion:^(UIImage *image, NSError *error) {
+        [self render:self.libraryAsset fast:NO size:CGSizeMake(2560, 2560) completion:^(Image *image, NSError *error) {
             NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
             SafetyCall(completion, imageData, nil);
         }];
@@ -211,7 +212,7 @@ static NSDictionary *CCFileKindValues;
 #pragma mark - Thumbnail
 //-------------------------------------------------------------------------------------------
 
-- (void)getLocalThumbnailImage:(void (^)(UIImage *thumbnail))completion
+- (void)getLocalThumbnailImage:(void (^)(Image *thumbnail))completion
 {
     if (self.kind == CCFileKind._photo) {
         if (self.originalImage) {
@@ -219,7 +220,7 @@ static NSDictionary *CCFileKindValues;
         } else if (self.thumbnail) {
             SafetyCall(completion, self.thumbnail);
         } else if (self.libraryAsset) {
-            [self render:self.libraryAsset fast:YES size:CGSizeMake(210, 210) completion:^(UIImage *image, NSError *error) {
+            [self render:self.libraryAsset fast:YES size:CGSizeMake(210, 210) completion:^(Image *image, NSError *error) {
                 self.thumbnail = image;
                 SafetyCall(completion, image);
             }];
@@ -240,7 +241,7 @@ static NSDictionary *CCFileKindValues;
     [self didChangeValueForKey:@"states"];
 }
 
-- (void)setOriginalImage:(UIImage *)originalImage
+- (void)setOriginalImage:(Image *)originalImage
 {
     [self willChangeValueForKey:@"states"];
     _originalImage = originalImage;
@@ -265,7 +266,7 @@ static NSDictionary *CCFileKindValues;
 #pragma mark - Assets Library rendering
 //-------------------------------------------------------------------------------------------
 
-- (void)render:(PHAsset *)asset fast:(BOOL)fast size:(CGSize)size completion:(void (^)(UIImage *image, NSError *error))completion
+- (void)render:(PHAsset *)asset fast:(BOOL)fast size:(CGSize)size completion:(void (^)(Image *image, NSError *error))completion
 {
     PHImageManager *imageManager = PHImageManager.defaultManager;
 
@@ -280,13 +281,31 @@ static NSDictionary *CCFileKindValues;
                             targetSize:CGSizeMake(smallSide, smallSide)
                            contentMode:PHImageContentModeAspectFill  //PHImageContentModeDefault
                                options:requestOptions
-                         resultHandler:^void(UIImage *image, NSDictionary *info) {
+                         resultHandler:^void(Image *image, NSDictionary *info) {
                              NSError *error = info[PHImageErrorKey];
                              if (error) {
                                  NSLog(@"Can't get image for asset '%@': %@", self, error);
                              }
                              SafetyCall(completion, image, error);
                          }];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Image Utils
+//-------------------------------------------------------------------------------------------
+
+- (NSData *)dataFromImage:(Image *)image
+{
+#if TARGET_OS_IPHONE
+    return UIImageJPEGRepresentation(image, 0.8);
+#else
+    NSData *imageData = [image TIFFRepresentation];
+    NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:imageData];
+    NSNumber *compressionFactor = [NSNumber numberWithFloat:0.8];
+    NSDictionary *imageProps = [NSDictionary dictionaryWithObject:compressionFactor
+                                                           forKey:NSImageCompressionFactor];
+    return [imageRep representationUsingType:NSJPEGFileType properties:imageProps];
+#endif
 }
 
 @end

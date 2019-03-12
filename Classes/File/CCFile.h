@@ -10,9 +10,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
 #import <TyphoonRestClient/TRCSerializerMultipart.h>
 #import "CCEnum.h"
+#import <Photos/Photos.h>
+
+#if TARGET_OS_IPHONE
+  #import <UIKit/UIKit.h>
+  #define Image UIImage
+#else
+  #import <Cocoa/Cocoa.h>
+  #define Image NSImage
+#endif
 
 typedef NS_OPTIONS(NSUInteger, CCFileStates) {
     CCFileStatesHasLocalData  = 1 << 0,
@@ -38,9 +46,9 @@ typedef NS_OPTIONS(NSUInteger, CCFileStates) {
 @property (nonatomic) NSString *extension;
 @property (nonatomic) NSString *mime;
 
-- (instancetype)initWithQuickTimeMovieAtURL:(NSURL *)url thumbnail:(UIImage *)thumbnail;
+- (instancetype)initWithQuickTimeMovieAtURL:(NSURL *)url thumbnail:(Image *)thumbnail;
 
-- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(Image *)image;
 
 - (instancetype)initWithPHAsset:(PHAsset *)asset;
 
@@ -49,7 +57,7 @@ typedef NS_OPTIONS(NSUInteger, CCFileStates) {
 /// Same as initWithUploadName:imageUrl kind:CCFileKind._photo
 - (instancetype)initWithImageUrl:(NSString *)imageUrl;
 
-+ (instancetype)withImage:(UIImage *)image;
++ (instancetype)withImage:(Image *)image;
 
 + (instancetype)withImageUrl:(NSString *)imageUrl;
 
@@ -69,6 +77,6 @@ typedef NS_OPTIONS(NSUInteger, CCFileStates) {
 #pragma mark - Thumbnail
 //-------------------------------------------------------------------------------------------
 
-- (void)getLocalThumbnailImage:(void(^)(UIImage *thumbnail))completion;
+- (void)getLocalThumbnailImage:(void(^)(Image *thumbnail))completion;
 
 @end
