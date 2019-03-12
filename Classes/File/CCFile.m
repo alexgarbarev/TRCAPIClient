@@ -182,11 +182,11 @@ static NSDictionary *CCFileKindValues;
     if (self.filePath) {
         SafetyCall(completion, nil, self.filePath);
     } else if (self.originalImage) {
-        NSData *dataForUpload = UIImageJPEGRepresentation(self.originalImage, 0.8);
+        NSData *dataForUpload = [self dataFromImage:self.originalImage];
         SafetyCall(completion, dataForUpload, nil);
     } else if (self.libraryAsset) {
         [self render:self.libraryAsset fast:NO size:CGSizeMake(2560, 2560) completion:^(Image *image, NSError *error) {
-            NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+            NSData *imageData = [self dataFromImage:image];
             SafetyCall(completion, imageData, nil);
         }];
     }
