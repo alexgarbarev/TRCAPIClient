@@ -7,7 +7,7 @@
 //
 
 #import "CCAPIClient.h"
-#import "TyphoonRestClient.h"
+#import <TyphoonRestClient/TyphoonRestClient.h>
 
 
 #define REGISTER_COMPONENT(Client) + (void)load { [NSClassFromString(@#Client) addSelfRegisteredComponentClass:self]; }
